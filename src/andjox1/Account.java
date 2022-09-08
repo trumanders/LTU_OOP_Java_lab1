@@ -14,13 +14,11 @@ public class Account {
     private BigDecimal balance = new BigDecimal(0);
 
 
-
     /* Constructor */
     public Account() {
         countingAllAccountNumbers++;
         accountNumber = countingAllAccountNumbers;
     }
-
 
 
     /* TRANSACTIONS */
