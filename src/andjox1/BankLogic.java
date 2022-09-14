@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 /**
- * This class handles all of the customers and has methods to extract
+ * This class handles all the customers and has methods to extract
  * information from customer  object. It has methods to error check
  * the input and also get information about the accounts indirectly.
  * @author Anders Johansson, andjox-1
  */
 public class BankLogic {
-    private ArrayList<Customer> allCustomers = new ArrayList<>();
+    private final ArrayList<Customer> allCustomers = new ArrayList<>();
 
     /**
      * Returns a String ArrayList with all customers' persNum and full name.
@@ -31,7 +31,7 @@ public class BankLogic {
      * @param pNo       Customer's personal number
      */
     public boolean createCustomer(String name, String surname, String pNo) {
-        // Check if personal number IS VALID (does not already exists)
+        // Check if personal number IS VALID (does not already exist)
         if (isPersonalNumberValid(pNo)) {
 
             /* If personal number is valid, create the customer and add to the ArrayList */
@@ -43,7 +43,7 @@ public class BankLogic {
 
 
     /**
-     * Retuns an ArrayList containing the customer's name, personal number, and it's accounts
+     * Returns an ArrayList containing the customer's name, personal number, and it's accounts
      * and information about the customer's accounts.
      * @param pNo   Customer's personal number
      * @return      Info about the customer
@@ -76,7 +76,7 @@ public class BankLogic {
      * Method to change a customer's name
      * @param name      The customer's new first name
      * @param surname   The customer's new last name
-     * @param pNo       The pesonal number of the customer to change it's name
+     * @param pNo       The personal number of the customer to change its name
      * @return boolean  false: if both strings passed are empty, or if the customer was not found
      *                  true: if the operation was successful
      */
@@ -113,8 +113,8 @@ public class BankLogic {
     /**
      * Gets information about a specific account: account number, balance, account type, interest rate
      * @param pNo           The personal number of the customer in possession of the account
-     * @param accountId     The accont number for the account to get information about
-     * @return String       A string containing the information, return null if the customer or acccount was not found
+     * @param accountId     The account number for the account to get information about
+     * @return String       A string containing the information, return null if the customer or account was not found
      */
     public String getAccount(String pNo, int accountId) {
         int customerIndex = searchForCustomerAndAccount(pNo, accountId)[0];
@@ -135,11 +135,11 @@ public class BankLogic {
 
 
     /**
-     * Performs a depoit to the specified account
+     * Performs a deposit to the specified account
      * @param pNo       The personal number of the customer
      * @param accountId The account number to make a deposit to
      * @param amount    The amount of money to transfer to the account
-     * @return boolean  Returns true of the amount was > 0, both customer and it's account was found, and the deposit was made.
+     * @return boolean  Returns true of the amount was > 0, both customer and its account was found, and the deposit was made.
      */
     public boolean deposit(String pNo, int accountId, int amount) {
         if (amount < 0) {
@@ -164,7 +164,7 @@ public class BankLogic {
      * @param pNo       The customer's personal number
      * @param accountId The account number to make the withdrawal from
      * @param amount    The amount of money to withdraw
-     * @return boolean  Returns true of the amount was > 0, both customer and it's account was found, and the withdrawal was made.
+     * @return boolean  Returns true of the amount was > 0, both customer and its account was found, and the withdrawal was made.
      */
     public boolean withdraw(String pNo, int accountId, int amount) {
         int customerIndex = searchForCustomerAndAccount(pNo, accountId)[0];
@@ -185,10 +185,10 @@ public class BankLogic {
 
 
     /**
-     * Closes an account and returns information abount the closed account
+     * Closes an account and returns information about the closed account
      * @param pNo       The personal number of the customer
      * @param accountId The account number for the account to be closed
-     * @return String   Returns Accont number, balance, account tyoe, and interest before it is closed
+     * @return String   Returns Account number, balance, account type, and interest before it is closed
      */
     public String closeAccount(String pNo, int accountId) {
         int customerIndex = searchForCustomerAndAccount(pNo, accountId)[0];
@@ -251,11 +251,10 @@ public class BankLogic {
     /**
      * Checks if the personal number of a new customer is valid
      * @param pNo       The personal number to be validated
-     * @return boolean  Returns true if the personal number was valid (didn't alreay exist), else returns false
+     * @return boolean  Returns true if the personal number was valid (didn't already exist), else returns false
      */
     private boolean isPersonalNumberValid(String pNo)
     {
-        boolean isValid = true;
         for (Customer customer : allCustomers)
         {
             if (customer.getPERSONAL_NUMBER().equals(pNo)) {
@@ -306,7 +305,7 @@ public class BankLogic {
 
 
     /**
-     * Formats a BigDecimal number as swedish money
+     * Formats a BigDecimal number as swedish money.
      * @param money     The BigDecimal number to be formatted
      * @return String   The BigDecimal as a String
      */
