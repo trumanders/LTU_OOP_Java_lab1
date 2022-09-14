@@ -163,6 +163,6 @@ public class Customer {
     public BigDecimal calculateInterest(int index) {
         /* Balance * (interestRate / 100) */
 
-        return thisCustomersAccounts.get(index).getBalance().multiply(Account.getInterestRate().divide(new BigDecimal(100)));
+        return thisCustomersAccounts.get(index).getBalance().multiply(Account.getInterestRate().divide(new BigDecimal("100")));
     }
 }

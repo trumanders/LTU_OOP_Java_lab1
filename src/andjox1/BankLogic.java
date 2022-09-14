@@ -319,7 +319,7 @@ public class BankLogic {
     private String formatPercentString(BigDecimal interestRate) {
         NumberFormat percentFormat = NumberFormat.getPercentInstance(new Locale("sv", "SE"));
         percentFormat.setMaximumFractionDigits(1);
-        return percentFormat.format(interestRate.divide(new BigDecimal(100)));
+        return percentFormat.format(interestRate.divide(new BigDecimal("100")));
     }
 
 

@@ -8,10 +8,10 @@ import java.math.BigDecimal;
  */
 public class Account {
     private static int countingAllAccountNumbers = 1000;
-    private static final BigDecimal INTEREST_RATE = new BigDecimal(1.2);
+    private static final BigDecimal INTEREST_RATE = new BigDecimal("1.2");
     private static final String ACCOUNT_TYPE = "Sparkonto";
     private int accountNumber;
-    private BigDecimal balance = new BigDecimal(0);
+    private BigDecimal balance = new BigDecimal("0");
 
 
     /* Constructor */
